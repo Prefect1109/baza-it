@@ -1,27 +1,21 @@
 @font-face {
   font-family: 'Lovely-Font';
-  src: url('./fonts/Neoneon1.otf');
+  src: url('/fonts/Neoneon1.otf');
 }
 
 .main {
-  /*zoom: 2;*/
-  width: 50%;
-  margin-top: 30%;
-  margin-left: 15%;
-  margin-right: 25%;
   padding: 1rem;
   border-radius: 2rem;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .element {
-  zoom: 2;
+  zoom: 3;
   font-family: Lovely-Font;
   height: 5rem;
-  /*margin-left: 25%;*/
-  /*padding-right: 25%;*/
-  margin-top: 10%;
-  /*margin-bottom: 10%;*/
+  margin: 5px;
   text-align: center;
   line-height: 5rem;
   color: rgb(201,241,248);
@@ -35,3 +29,7 @@
   text-decoration: none;
 }
 
+body {
+    align-items: center;
+    justify-content: center;
+}

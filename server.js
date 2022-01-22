@@ -24,6 +24,7 @@ const mimeType = {
   '.doc': 'application/msword',
   '.eot': 'application/vnd.ms-fontobject',
   '.ttf': 'application/x-font-ttf',
+  '.otf': 'application/x-font-opentype',
 };
 
 http.createServer(function (req, res) {
