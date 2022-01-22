@@ -51,9 +51,13 @@ http.createServer(function (req, res) {
     if (fs.statSync(pathname).isDirectory()) {
       pathname += '/index.html';
     }
-    console.log(req.url)
+
     // read file from file system
     fs.readFile(pathname, function(err, data){
+      const reqSplitRes = req.url.split('/')
+      const fileName = reqSplitRes[reqSplitRes.length - 1]
+      const fileSplitRes = fileName.split('.')
+      const fileExt = '.' + fileSplitRes[fileSplitRes.length - 1]
       if(err){
         res.statusCode = 500;
         res.end(`Error getting the file: ${err}.`);
@@ -63,7 +67,7 @@ http.createServer(function (req, res) {
         // if the file is found, set Content-type and send data
         res.setHeader('Content-type', mimeType[ext] || 'text/html' );
         res.end(data);
-      } else if (req.url.split('.')[-1] in mimeType) {
+      } else if (fileExt in mimeType) {
         // based on the URL path, extract the file extention. e.g. .js, .doc, ...
         const ext = path.parse(pathname).ext;
         // if the file is found, set Content-type and send data
